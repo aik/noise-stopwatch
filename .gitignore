@@ -1,0 +1,27 @@
+# Built artifacts
+*.apk
+*.aab
+*.ap_
+*.dex
+*.class
+
+# Gradle
+.gradle/
+build/
+app/build/
+/captures
+
+# Android Studio / IntelliJ
+*.iml
+.idea/
+.DS_Store
+
+# Local, machine-specific config (SDK path, etc.)
+local.properties
+
+# Native build
+.externalNativeBuild
+.cxx
+
+# Logs
+*.log

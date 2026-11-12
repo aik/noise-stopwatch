@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Шумомер-секундомер</string>
+    <string name="total_label">Суммарное время шума</string>
+    <string name="current_label">Текущий интервал</string>
+    <string name="level_label">Уровень</string>
+    <string name="threshold_label">Порог срабатывания</string>
+    <string name="duration_label">Таймеры вибрации, сек (выберите активный)</string>
+    <string name="no_limit_label">Без лимита</string>
+    <string name="sec_suffix">сек</string>
+    <string name="status_quiet">Тихо</string>
+    <string name="status_loud">ШУМ — идёт отсчёт</string>
+    <string name="status_idle">Нажмите «Старт», чтобы начать слушать</string>
+    <string name="status_timeup">Время вышло — стоп</string>
+    <string name="start">Старт</string>
+    <string name="stop">Стоп</string>
+    <string name="reset">Сброс</string>
+    <string name="autostart">Автостарт</string>
+    <string name="switch_to_third">Переключаться на этот таймер по окончании любого таймера</string>
+    <string name="switching_in">Переключаюсь на третий таймер через %d сек</string>
+    <string name="perm_needed">Нужно разрешение на микрофон</string>
+</resources>

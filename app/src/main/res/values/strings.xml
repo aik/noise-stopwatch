@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Noise Stopwatch</string>
+    <string name="total_label">Total noise time</string>
+    <string name="current_label">Current interval</string>
+    <string name="level_label">Level</string>
+    <string name="threshold_label">Trigger threshold</string>
+    <string name="duration_label">Vibration timers, sec (pick the active one)</string>
+    <string name="no_limit_label">No limit</string>
+    <string name="sec_suffix">sec</string>
+    <string name="status_quiet">Quiet</string>
+    <string name="status_loud">NOISE — counting</string>
+    <string name="status_idle">Press "Start" to begin listening</string>
+    <string name="status_timeup">Time is up — stopped</string>
+    <string name="start">Start</string>
+    <string name="stop">Stop</string>
+    <string name="reset">Reset</string>
+    <string name="autostart">Auto-start</string>
+    <string name="switch_to_third">Switch to this timer when any timer ends</string>
+    <string name="switching_in">Switching to timer 3 in %d sec</string>
+    <string name="perm_needed">Microphone permission is required</string>
+</resources>

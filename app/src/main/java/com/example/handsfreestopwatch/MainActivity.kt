@@ -221,14 +221,11 @@ class MainActivity : AppCompatActivity() {
                     ) {
                         alarmFired = true
                         vibrate()
-                        running = false
                         ui.post {
                             flashIndicator()
-                            stopMonitoring()
-                            resetTimer()
                             if (binding.checkAutoThird.isChecked) startAutoSwitchCountdown()
                         }
-                        break
+                        // Таймер НЕ останавливаем — продолжаем считать до нажатия другой радиокнопки.
                     }
                 } else if (inNoise && now - lastLoudAt >= quietGraceMs) {
                     // Шум закончился: засчитываем интервал до последнего громкого момента.
@@ -268,6 +265,10 @@ class MainActivity : AppCompatActivity() {
         durRadios.forEachIndexed { i, r -> r.isChecked = (i == index) }
         if (hasLimit()) alarmMillis = (fieldValue(index) * 1000).toLong()
         prefs.edit().putInt("active", index).apply()
+        // Нажатие радиокнопки начинает отсчёт заново.
+        totalMillis = 0L
+        alarmFired = false
+        intervalStart = System.currentTimeMillis()
         if (binding.checkAutostart.isChecked && !running) ensurePermissionAndStart()
         if (!running) updateTexts(level = 0, noise = false)
     }
@@ -347,13 +348,15 @@ class MainActivity : AppCompatActivity() {
         binding.textTotal.text = "${fmt(totalMillis + liveMillis)} / $targetStr"
         binding.textCurrent.text = fmt(liveMillis)
 
-        binding.textStatus.setText(
-            when {
-                !running -> R.string.status_idle
-                noise -> R.string.status_loud
-                else -> R.string.status_quiet
-            }
-        )
+        if (!autoSwitchActive) {
+            binding.textStatus.setText(
+                when {
+                    !running -> R.string.status_idle
+                    noise -> R.string.status_loud
+                    else -> R.string.status_quiet
+                }
+            )
+        }
     }
 
     private fun fmt(ms: Long): String {
